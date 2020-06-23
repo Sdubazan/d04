@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdubazan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/23 10:57:18 by sdubazan          #+#    #+#             */
-/*   Updated: 2020/06/23 11:00:19 by sdubazan         ###   ########.fr       */
+/*   Created: 2020/06/23 11:28:25 by sdubazan          #+#    #+#             */
+/*   Updated: 2020/06/23 11:29:30 by sdubazan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_iterative_factorial(int nb)
+int ft_is_prime(int nb)
 {
 	int i;
-	unsigned int r;
-	
-	if (nb < 0 || nb > 12)
+
+	i = 2;
+	if(nb <= 1)
 	{
 		return (0);
 	}
-	i = 2;
-	r = 1;
-	
-	while (i <= nb)
+
+	while (i <= nb / i)
 	{
-		r *= i;
-		++i;
+		if (nb % i == 0)
+			return (0);
+		i++;
 	}
-	return (r);
+	return (1);
 }

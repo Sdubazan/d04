@@ -1,14 +1,33 @@
-int		ft_putchar(char c);
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_eight_queens_puzzle_2.c                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sdubazan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/06/23 11:40:34 by sdubazan          #+#    #+#             */
+/*   Updated: 2020/06/23 12:24:33 by sdubazan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int		absolute(int a, int b)
+int ft_putchar(char c)
 {
-	if (a >= b)
-		return (a - b);
-	else
-		return (b - a);
+	write(1,&c,1);
 }
 
-void	solution(int n, int *hist)
+int	absolute(int a, int b)
+{
+	if (a >= b)
+	{
+		return (a - b);
+	}
+	else
+	{
+		return (b - a);
+	}
+}
+
+void solution(int n, int *hist)
 {
 	int i;
 	int j;
@@ -20,15 +39,17 @@ void	solution(int n, int *hist)
 		while (j < n)
 		{
 			if (j == hist[i])
+			{
 				ft_putchar(j + 48 + 1);
 			j++;
+			}
 		}
 		i++;
 	}
 	ft_putchar('\n');
 }
 
-void	solve(int n, int col, int *hist)
+void solve(int n, int col, int *hist)
 {
 	int i;
 	int j;
@@ -42,7 +63,9 @@ void	solve(int n, int col, int *hist)
 	{
 		j = 0;
 		while (j < col && !(hist[j] == i || absolute(hist[j], i) == col - j))
+		{
 			j++;
+		}
 		if (j < col)
 		{
 			i++;
@@ -54,7 +77,7 @@ void	solve(int n, int col, int *hist)
 	}
 }
 
-void	ft_eight_queens_puzzle(void)
+void ft_eight_queens_puzzle(void)
 {
 	int hist[8];
 
